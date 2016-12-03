@@ -163,6 +163,7 @@ public class LandActivity extends AppCompatActivity {
         initDegRad();
         initPrecisionPicker();
         initThreeFunctions();
+        initBaseCalculatorFunction();
     }
 
     //初始化tvPast
@@ -238,7 +239,7 @@ public class LandActivity extends AppCompatActivity {
 
                     //math的最后一个字符是：1-9, oper, (, .
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "1";
                 }
                 tvNow.setText(mathNow);
@@ -256,7 +257,7 @@ public class LandActivity extends AppCompatActivity {
                     mathNow += "2";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "2";
                 }
                 tvNow.setText(mathNow);
@@ -274,7 +275,7 @@ public class LandActivity extends AppCompatActivity {
                     mathNow += "3";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "3";
                 }
                 tvNow.setText(mathNow);
@@ -292,7 +293,7 @@ public class LandActivity extends AppCompatActivity {
                     mathNow += "4";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "4";
                 }
                 tvNow.setText(mathNow);
@@ -310,7 +311,7 @@ public class LandActivity extends AppCompatActivity {
                     mathNow += "5";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "5";
                 }
                 tvNow.setText(mathNow);
@@ -328,7 +329,7 @@ public class LandActivity extends AppCompatActivity {
                     mathNow += "6";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "6";
                 }
                 tvNow.setText(mathNow);
@@ -346,7 +347,7 @@ public class LandActivity extends AppCompatActivity {
                     mathNow += "7";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "7";
                 }
                 tvNow.setText(mathNow);
@@ -364,7 +365,7 @@ public class LandActivity extends AppCompatActivity {
                     mathNow += "8";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "8";
                 }
                 tvNow.setText(mathNow);
@@ -382,7 +383,7 @@ public class LandActivity extends AppCompatActivity {
                     mathNow += "9";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "9";
                 }
                 tvNow.setText(mathNow);
@@ -476,25 +477,6 @@ public class LandActivity extends AppCompatActivity {
                 }
                 tvNow.setText(mathNow);
                 equal_flag = 0;
-            }
-        });
-
-
-        btnClc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mathNow = "";
-                tvNow.setText(mathNow);
-            }
-        });
-
-        btnDel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mathNow.length() != 0) {
-                    mathNow = mathNow.substring(0, mathNow.length() - 1);
-                    tvNow.setText(mathNow);
-                }
             }
         });
 
@@ -861,6 +843,27 @@ public class LandActivity extends AppCompatActivity {
                 mathPast = "";
                 tvPast.setText(mathPast);
                 Toast.makeText(LandActivity.this, "计算过程已经清空", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    //初始化计算器器基本Button
+    public void initBaseCalculatorFunction() {
+        btnClc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mathNow = "";
+                tvNow.setText(mathNow);
+            }
+        });
+
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mathNow.length() != 0) {
+                    mathNow = mathNow.substring(0, mathNow.length() - 1);
+                    tvNow.setText(mathNow);
+                }
             }
         });
     }

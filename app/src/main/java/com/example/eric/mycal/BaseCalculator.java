@@ -90,7 +90,7 @@ class BaseCalculator {
 
                 //(1)num进栈
                 if (!isOper(charOfMath)                                         //1.不是oper
-                        || charOfMath == '-' && math.charAt(i - 1) == '(') {    //2.是'-'并且'-'左边有'('，说明是在math中间用复数
+                        || charOfMath == '-' && math.charAt(i - 1) == '(') {    //2.是'-'并且'-'左边有'('，说明是在math中间用负数
                     tempNum += charOfMath;
 
                     //1.1 获取下一个char

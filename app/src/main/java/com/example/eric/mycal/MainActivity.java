@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         initNumBtns();
         initBaseOpers();
         initThreeFunctions();
+        initBaseCalculatorFunction();
     }
 
     //初始化tvPast
@@ -141,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 
     //初始化数字btns
     public void initNumBtns() {
@@ -190,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
 
                     //math的最后一个字符是：1-9, oper, (, .
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "1";
                 }
                 tvNow.setText(mathNow);
@@ -208,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
                     mathNow += "2";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "2";
                 }
                 tvNow.setText(mathNow);
@@ -226,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
                     mathNow += "3";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "3";
                 }
                 tvNow.setText(mathNow);
@@ -244,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
                     mathNow += "4";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "4";
                 }
                 tvNow.setText(mathNow);
@@ -262,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
                     mathNow += "5";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "5";
                 }
                 tvNow.setText(mathNow);
@@ -280,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
                     mathNow += "6";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "6";
                 }
                 tvNow.setText(mathNow);
@@ -298,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
                     mathNow += "7";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "7";
                 }
                 tvNow.setText(mathNow);
@@ -316,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
                     mathNow += "8";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "8";
                 }
                 tvNow.setText(mathNow);
@@ -334,7 +336,7 @@ public class MainActivity extends AppCompatActivity {
                     mathNow += "9";
                 } else {
                     char ch = mathNow.charAt(mathNow.length() - 1);
-                    if (isNum(ch) && ch != '0' || isOper(ch) || ch == '(' || ch == '.')
+                    if (isNum(ch) || isOper(ch) || ch == '(' || ch == '.')
                         mathNow += "9";
                 }
                 tvNow.setText(mathNow);
@@ -431,24 +433,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        btnClc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mathNow = "";
-                tvNow.setText(mathNow);
-            }
-        });
-
-        btnDel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mathNow.length() != 0) {
-                    mathNow = mathNow.substring(0, mathNow.length() - 1);
-                    tvNow.setText(mathNow);
-                }
-            }
-        });
 
         btnBracket.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -565,6 +549,27 @@ public class MainActivity extends AppCompatActivity {
                 mathPast = "";
                 tvPast.setText(mathPast);
                 Toast.makeText(MainActivity.this, "计算过程已经清除", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    //初始化计算器基本Button
+    public void initBaseCalculatorFunction() {
+        btnClc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mathNow = "";
+                tvNow.setText(mathNow);
+            }
+        });
+
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mathNow.length() != 0) {
+                    mathNow = mathNow.substring(0, mathNow.length() - 1);
+                    tvNow.setText(mathNow);
+                }
             }
         });
     }
