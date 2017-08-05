@@ -2,26 +2,8 @@
 
 界面设计灵感来自于 [Dribbble](https://dribbble.com/shots)，颜色风格配合魅族蓝。
 
-## 一、设计分析
-### 1.1 题目重述
-### 1.2 设计思路
+下面附上实验报告的测试部分。
 
-## 二、程序结构
-
-## 三、各模块功能及程序说明
-### 3.1 计算器设计界面
-
-![图3.1 竖屏界面](http://upload-images.jianshu.io/upload_images/1877813-42ff45d347171cec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![图3.2 横屏界面](http://upload-images.jianshu.io/upload_images/1877813-99fe32a88535dada.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-### 3.2 界面各模块功能
-### 3.3 ScienceCalculator 接口
-### 3.4 BaseCalculator 接口
-
-## 四、操作流程
-### 4.1 操作流程图
-### 4.2 操作流程步骤
 
 ## 五、测试
 
